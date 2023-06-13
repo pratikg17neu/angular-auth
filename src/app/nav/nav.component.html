@@ -7,8 +7,15 @@
       <li class="active">
         <a routerLinkActive="active" routerLink="/">Home</a>
       </li>
-      <li><a routerLinkActive="active" routerLink="/login">Login</a></li>
-      <li><a routerLinkActive="active" routerLink="/register">Register</a></li>
+      <ng-container *ngIf="!authenticated">
+        <li><a routerLinkActive="active" routerLink="/login">Login</a></li>
+        <li>
+          <a routerLinkActive="active" routerLink="/register">Register</a>
+        </li>
+      </ng-container>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" *ngIf="authenticated">
+      <li><a (click)="onLogout()">Logout</a></li>
     </ul>
   </div>
 </nav>
