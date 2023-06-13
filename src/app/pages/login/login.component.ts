@@ -30,8 +30,12 @@ export class LoginComponent {
   submit(): void {
     this.http
       .post('http://localhost:3000/api/login', this.loginForm.getRawValue())
-      .subscribe(() => {
-        this.router.navigate(['/']);
-      });
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.router.navigate(['/']);
+        },
+        (err) => console.log(err)
+      );
   }
 }
