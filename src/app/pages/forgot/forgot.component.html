@@ -1,0 +1,18 @@
+<form class="form-signin" [formGroup]="forgotForm" (submit)="submit()">
+  <div *ngIf="cls" class="alert alert-{{ cls }}" role="alert">
+    {{ message }}
+  </div>
+
+  <h1 class="h3 mb-3 font-weight-normal text-center">
+    Please enter your email
+  </h1>
+
+  <input
+    formControlName="email"
+    type="email"
+    class="form-control"
+    placeholder="Email"
+  />
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+</form>
